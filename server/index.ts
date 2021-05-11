@@ -1,41 +1,27 @@
 import express from 'express';
-import { server as gqlServer } from './graphql';
+import { newServer } from './graphql';
 import next from 'next';
-import { newEventStore } from './events';
+import { Event, newEventStore } from './events';
+import { newReadModel } from './readModel';
 
 const port = parseInt(process.env.PORT, 10) || 3000;
 const dev = process.env.NODE_ENV !== 'production';
 
-const expressServer = express();
+const eventStore = newEventStore();
+const readModel = newReadModel(eventStore);
+const gqlServer = newServer(eventStore, readModel);
 
 const nextServer = next({ dev });
 const handle = nextServer.getRequestHandler();
 
+const expressServer = express();
+gqlServer.applyMiddleware({ app: expressServer, path: '/graphql' });
+expressServer.all('*', (req, res) => handle(req, res));
+
 (async () => {
   try {
-    const eventStore = newEventStore();
     await eventStore.loadEvents();
-    await eventStore.writeEvent({
-      type: 'test',
-      actor: '',
-      aggregateId: '123',
-      aggregateType: 'nothing',
-      payload: { id: '123' },
-    });
-    await eventStore.writeEvent({
-      type: 'test',
-      actor: '',
-      aggregateId: '123',
-      aggregateType: 'nothing',
-      payload: { id: '123' },
-    });
-
-    console.log(eventStore.listEvents());
     await nextServer.prepare();
-
-    gqlServer.applyMiddleware({ app: expressServer, path: '/graphql' });
-
-    expressServer.all('*', (req, res) => handle(req, res));
 
     expressServer
       .listen(port, () => {

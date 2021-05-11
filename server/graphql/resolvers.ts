@@ -1,11 +1,32 @@
 import { Resolvers } from './generated/resolvers';
-import { Context } from './context';
+import { EventStore } from '../events';
+import { ReadModel } from '../readModel';
 
-export const resolvers: Resolvers<Context> = {
+export const resolvers: Resolvers<{ eventStore: EventStore; readModel: ReadModel }> = {
   Query: {
-    movieLists: () => {
-      return [];
+    movieLists: (_, __, { readModel }) => {
+      return Object.values(readModel.getState().movieLists);
     },
   },
-  Mutation: {},
+  Mutation: {
+    createList: (_, input, { eventStore }) => {
+      eventStore.writeEvent({
+        type: 'MovieListCreated',
+        payload: {
+          id: input.id,
+          name: input.name,
+        },
+      });
+      return true;
+    },
+    deleteList: (_, input, { eventStore }) => {
+      eventStore.writeEvent({
+        type: 'MovieListDeleted',
+        payload: {
+          id: input.id,
+        },
+      });
+      return true;
+    },
+  },
 };

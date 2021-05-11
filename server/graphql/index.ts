@@ -1,1 +1,1 @@
-export { server } from './server';
+export { newServer } from './server';
