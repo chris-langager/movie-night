@@ -1,0 +1,21 @@
+type Query {
+  movieLists: [MovieList!]!
+}
+
+type Mutation {
+  createList(id: String!, name: String!): Boolean
+  deleteList(id: String!): Boolean
+  addMovieToList(id: String!, name: String!): Boolean
+  removeMovieFromList(id: String!): Boolean
+}
+
+type Movie {
+  id: ID!
+  name: String!
+}
+
+type MovieList {
+  id: ID!
+  name: String!
+  movies: [Movie!]!
+}
