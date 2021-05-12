@@ -71,6 +71,18 @@ export type Query = {
   movieLists: Array<MovieList>;
 };
 
+export type AddMovieToListMutationVariables = Exact<{
+  movieListId: Scalars['String'];
+  movieId: Scalars['String'];
+  movieName: Scalars['String'];
+}>;
+
+
+export type AddMovieToListMutation = (
+  { __typename?: 'Mutation' }
+  & Pick<Mutation, 'addMovieToList'>
+);
+
 export type ListMovieListsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -87,6 +99,15 @@ export type ListMovieListsQuery = (
 );
 
 
+export const AddMovieToListDocument = gql`
+    mutation addMovieToList($movieListId: String!, $movieId: String!, $movieName: String!) {
+  addMovieToList(
+    movieListId: $movieListId
+    movieId: $movieId
+    movieName: $movieName
+  )
+}
+    `;
 export const ListMovieListsDocument = gql`
     query listMovieLists {
   movieLists {
@@ -107,6 +128,9 @@ const defaultWrapper: SdkFunctionWrapper = sdkFunction => sdkFunction();
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
+    addMovieToList(variables: AddMovieToListMutationVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<AddMovieToListMutation> {
+      return withWrapper(() => client.request<AddMovieToListMutation>(AddMovieToListDocument, variables, requestHeaders));
+    },
     listMovieLists(variables?: ListMovieListsQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<ListMovieListsQuery> {
       return withWrapper(() => client.request<ListMovieListsQuery>(ListMovieListsDocument, variables, requestHeaders));
     }

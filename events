@@ -1,17 +1,20 @@
-{"date":"2021-05-12T00:04:53.939Z","type":"MovieListCreated","payload":{"id":"123","name":"Test Movie List"}}
-{"date":"2021-05-12T00:04:54.099Z","type":"MovieListCreated","payload":{"id":"123","name":"Test Movie List"}}
-{"date":"2021-05-12T00:04:54.471Z","type":"MovieListCreated","payload":{"id":"123","name":"Test Movie List"}}
-{"date":"2021-05-12T00:04:54.637Z","type":"MovieListCreated","payload":{"id":"123","name":"Test Movie List"}}
-{"date":"2021-05-12T00:04:59.458Z","type":"MovieListRenamed","payload":{"id":"123","name":"Test Movie Lisxxt"}}
-{"date":"2021-05-12T00:14:35.186Z","type":"MovieAddedToList","payload":{"movieList":{"id":"123"},"movie":{"id":"a","name":"A"}}}
-{"date":"2021-05-12T00:14:42.620Z","type":"MovieAddedToList","payload":{"movieList":{"id":"123"},"movie":{"id":"a","name":"A"}}}
-{"date":"2021-05-12T00:14:42.784Z","type":"MovieAddedToList","payload":{"movieList":{"id":"123"},"movie":{"id":"a","name":"A"}}}
-{"date":"2021-05-12T00:14:42.950Z","type":"MovieAddedToList","payload":{"movieList":{"id":"123"},"movie":{"id":"a","name":"A"}}}
-{"date":"2021-05-12T00:14:43.085Z","type":"MovieAddedToList","payload":{"movieList":{"id":"123"},"movie":{"id":"a","name":"A"}}}
-{"date":"2021-05-12T00:15:35.122Z","type":"MovieListDeleted","payload":{"id":"123"}}
-{"date":"2021-05-12T00:15:39.576Z","type":"MovieListCreated","payload":{"id":"123","name":"Test Movie List"}}
-{"date":"2021-05-12T00:19:52.875Z","type":"MovieAddedToList","payload":{"movieList":{"id":"123"},"movie":{"id":"a","name":"A"}}}
-{"date":"2021-05-12T00:20:10.346Z","type":"MovieRemovedFromList","payload":{"movieList":{"id":"123"},"movie":{"id":"a"}}}
-{"date":"2021-05-12T00:20:13.828Z","type":"MovieAddedToList","payload":{"movieList":{"id":"123"},"movie":{"id":"a","name":"A"}}}
-{"date":"2021-05-12T01:08:36.504Z","type":"MovieAddedToList","payload":{"movieList":{"id":"123"},"movie":{"id":"b","name":"B"}}}
-{"date":"2021-05-12T01:12:13.903Z","type":"MovieRemovedFromList","payload":{"movieList":{"id":"123"},"movie":{"id":"a"}}}
+{"date":"2021-05-12T02:55:52.610Z","type":"MovieListCreated","payload":{"id":"123","name":"Movie List"}}
+{"date":"2021-05-12T02:55:57.470Z","type":"MovieListCreated","payload":{"id":"123","name":"Movie List"}}
+{"date":"2021-05-12T02:56:09.780Z","type":"MovieAddedToList","payload":{"movieList":{"id":"123"},"movie":{"id":"847d5a94-2b9a-4078-bb6b-2dc4befd8e51","name":"Rush"}}}
+{"date":"2021-05-12T02:58:53.721Z","type":"MovieAddedToList","payload":{"movieList":{"id":"123"},"movie":{"id":"02e96fe6-cd69-4b7e-8966-27e98d7e24b0","name":"fdasfdas"}}}
+{"date":"2021-05-12T02:58:56.093Z","type":"MovieAddedToList","payload":{"movieList":{"id":"123"},"movie":{"id":"4aa7507d-510c-4c05-bcda-e1df88d3d32c","name":"one"}}}
+{"date":"2021-05-12T02:58:56.908Z","type":"MovieAddedToList","payload":{"movieList":{"id":"123"},"movie":{"id":"17d5b51b-29a7-40ec-8d95-2126f1ab3a41","name":"two"}}}
+{"date":"2021-05-12T02:58:57.790Z","type":"MovieAddedToList","payload":{"movieList":{"id":"123"},"movie":{"id":"c42cb4f4-87ca-433a-9e4f-fdb69ff6baad","name":"three"}}}
+{"date":"2021-05-12T02:58:58.782Z","type":"MovieAddedToList","payload":{"movieList":{"id":"123"},"movie":{"id":"6b3f3668-dd01-486a-aed4-d4d2c5035012","name":"four"}}}
+{"date":"2021-05-12T02:59:40.967Z","type":"MovieAddedToList","payload":{"movieList":{"id":"123"},"movie":{"id":"c85f7db5-bde7-44bd-8c08-77bef8209501","name":"one"}}}
+{"date":"2021-05-12T02:59:41.660Z","type":"MovieAddedToList","payload":{"movieList":{"id":"123"},"movie":{"id":"51f08747-5109-4e68-8b82-7ac43c537cef","name":"two"}}}
+{"date":"2021-05-12T02:59:42.452Z","type":"MovieAddedToList","payload":{"movieList":{"id":"123"},"movie":{"id":"1786a9a1-4400-40a1-831d-3e3d172c1b2a","name":"three"}}}
+{"date":"2021-05-12T02:59:55.935Z","type":"MovieAddedToList","payload":{"movieList":{"id":"123"},"movie":{"id":"1dc637c1-ec0f-46fe-a72d-3a1dff064034","name":"test"}}}
+{"date":"2021-05-12T03:00:39.399Z","type":"MovieAddedToList","payload":{"movieList":{"id":"123"},"movie":{"id":"a639511a-34d2-4d9f-b31d-066cde190d97","name":""}}}
+{"date":"2021-05-12T03:00:40.084Z","type":"MovieAddedToList","payload":{"movieList":{"id":"123"},"movie":{"id":"f40c24be-e01c-49ea-a8af-76d613a212db","name":""}}}
+{"date":"2021-05-12T03:00:40.259Z","type":"MovieAddedToList","payload":{"movieList":{"id":"123"},"movie":{"id":"d2c7a282-eb93-41ea-9691-9b87b408011e","name":""}}}
+{"date":"2021-05-12T03:01:07.059Z","type":"MovieAddedToList","payload":{"movieList":{"id":"123"},"movie":{"id":"fe21d471-2a04-48df-8973-d0b4e438b18e","name":"asdf"}}}
+{"date":"2021-05-12T03:01:07.923Z","type":"MovieAddedToList","payload":{"movieList":{"id":"123"},"movie":{"id":"df7e297c-0de0-4fcd-a403-c2509509cfd8","name":"asfd"}}}
+{"date":"2021-05-12T03:01:08.717Z","type":"MovieAddedToList","payload":{"movieList":{"id":"123"},"movie":{"id":"f5dbf4ee-815b-4eb7-9eda-695d53112e19","name":"saf"}}}
+{"date":"2021-05-12T03:01:09.448Z","type":"MovieAddedToList","payload":{"movieList":{"id":"123"},"movie":{"id":"936e2f90-23a7-4345-99c4-809952ef4b6c","name":"asdf"}}}
+{"date":"2021-05-12T03:01:44.610Z","type":"MovieAddedToList","payload":{"movieList":{"id":"123"},"movie":{"id":"28daf904-4be3-44da-80a8-053be690b318","name":"asdf"}}}
