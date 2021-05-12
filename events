@@ -1,0 +1,17 @@
+{"date":"2021-05-12T00:04:53.939Z","type":"MovieListCreated","payload":{"id":"123","name":"Test Movie List"}}
+{"date":"2021-05-12T00:04:54.099Z","type":"MovieListCreated","payload":{"id":"123","name":"Test Movie List"}}
+{"date":"2021-05-12T00:04:54.471Z","type":"MovieListCreated","payload":{"id":"123","name":"Test Movie List"}}
+{"date":"2021-05-12T00:04:54.637Z","type":"MovieListCreated","payload":{"id":"123","name":"Test Movie List"}}
+{"date":"2021-05-12T00:04:59.458Z","type":"MovieListRenamed","payload":{"id":"123","name":"Test Movie Lisxxt"}}
+{"date":"2021-05-12T00:14:35.186Z","type":"MovieAddedToList","payload":{"movieList":{"id":"123"},"movie":{"id":"a","name":"A"}}}
+{"date":"2021-05-12T00:14:42.620Z","type":"MovieAddedToList","payload":{"movieList":{"id":"123"},"movie":{"id":"a","name":"A"}}}
+{"date":"2021-05-12T00:14:42.784Z","type":"MovieAddedToList","payload":{"movieList":{"id":"123"},"movie":{"id":"a","name":"A"}}}
+{"date":"2021-05-12T00:14:42.950Z","type":"MovieAddedToList","payload":{"movieList":{"id":"123"},"movie":{"id":"a","name":"A"}}}
+{"date":"2021-05-12T00:14:43.085Z","type":"MovieAddedToList","payload":{"movieList":{"id":"123"},"movie":{"id":"a","name":"A"}}}
+{"date":"2021-05-12T00:15:35.122Z","type":"MovieListDeleted","payload":{"id":"123"}}
+{"date":"2021-05-12T00:15:39.576Z","type":"MovieListCreated","payload":{"id":"123","name":"Test Movie List"}}
+{"date":"2021-05-12T00:19:52.875Z","type":"MovieAddedToList","payload":{"movieList":{"id":"123"},"movie":{"id":"a","name":"A"}}}
+{"date":"2021-05-12T00:20:10.346Z","type":"MovieRemovedFromList","payload":{"movieList":{"id":"123"},"movie":{"id":"a"}}}
+{"date":"2021-05-12T00:20:13.828Z","type":"MovieAddedToList","payload":{"movieList":{"id":"123"},"movie":{"id":"a","name":"A"}}}
+{"date":"2021-05-12T01:08:36.504Z","type":"MovieAddedToList","payload":{"movieList":{"id":"123"},"movie":{"id":"b","name":"B"}}}
+{"date":"2021-05-12T01:12:13.903Z","type":"MovieRemovedFromList","payload":{"movieList":{"id":"123"},"movie":{"id":"a"}}}

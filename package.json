@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "generate": "gql-gen",
+    "generate:server": "gql-gen",
+    "generate:client": "gql-gen --config ./codegen.client.yml",
+    "generate": "npm run generate:server && npm run generate:client",
     "dev": "nodemon",
     "build:server": "tsc --project tsconfig.server.json",
     "build:next": "next build",
@@ -14,6 +16,7 @@
     "apollo-server-express": "^2.24.0",
     "express": "^4.17.1",
     "graphql": "^15.5.0",
+    "graphql-request": "^3.4.0",
     "next": "10.2.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",

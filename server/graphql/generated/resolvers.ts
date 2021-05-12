@@ -30,6 +30,7 @@ export type Mutation = {
   __typename?: 'Mutation';
   createList?: Maybe<Scalars['Boolean']>;
   deleteList?: Maybe<Scalars['Boolean']>;
+  renameList?: Maybe<Scalars['Boolean']>;
   addMovieToList?: Maybe<Scalars['Boolean']>;
   removeMovieFromList?: Maybe<Scalars['Boolean']>;
 };
@@ -46,14 +47,22 @@ export type MutationDeleteListArgs = {
 };
 
 
-export type MutationAddMovieToListArgs = {
+export type MutationRenameListArgs = {
   id: Scalars['String'];
   name: Scalars['String'];
 };
 
 
+export type MutationAddMovieToListArgs = {
+  movieListId: Scalars['String'];
+  movieId: Scalars['String'];
+  movieName: Scalars['String'];
+};
+
+
 export type MutationRemoveMovieFromListArgs = {
-  id: Scalars['String'];
+  movieListId: Scalars['String'];
+  movieId: Scalars['String'];
 };
 
 export type Query = {
@@ -175,8 +184,9 @@ export type MovieListResolvers<ContextType = any, ParentType extends ResolversPa
 export type MutationResolvers<ContextType = any, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = {
   createList?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType, RequireFields<MutationCreateListArgs, 'id' | 'name'>>;
   deleteList?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType, RequireFields<MutationDeleteListArgs, 'id'>>;
-  addMovieToList?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType, RequireFields<MutationAddMovieToListArgs, 'id' | 'name'>>;
-  removeMovieFromList?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType, RequireFields<MutationRemoveMovieFromListArgs, 'id'>>;
+  renameList?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType, RequireFields<MutationRenameListArgs, 'id' | 'name'>>;
+  addMovieToList?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType, RequireFields<MutationAddMovieToListArgs, 'movieListId' | 'movieId' | 'movieName'>>;
+  removeMovieFromList?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType, RequireFields<MutationRemoveMovieFromListArgs, 'movieListId' | 'movieId'>>;
 };
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {

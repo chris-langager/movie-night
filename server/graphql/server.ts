@@ -1,6 +1,6 @@
 import { ApolloServer } from 'apollo-server-express';
 import { EventStore } from '../events';
-import { ReadModel } from '../readModel';
+import { ReadModel } from '../state';
 import { resolvers } from './resolvers';
 import { typeDefs } from './typeDefs';
 

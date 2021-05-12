@@ -2,13 +2,13 @@ import express from 'express';
 import { newServer } from './graphql';
 import next from 'next';
 import { Event, newEventStore } from './events';
-import { newReadModel } from './readModel';
+import { newReadModel } from './state';
 
 const port = parseInt(process.env.PORT, 10) || 3000;
 const dev = process.env.NODE_ENV !== 'production';
 
 const eventStore = newEventStore();
-const readModel = newReadModel(eventStore);
+export const readModel = newReadModel(eventStore);
 const gqlServer = newServer(eventStore, readModel);
 
 const nextServer = next({ dev });

@@ -1,0 +1,10 @@
+query listMovieLists {
+  movieLists {
+    id
+    name
+    movies {
+      id
+      name
+    }
+  }
+}

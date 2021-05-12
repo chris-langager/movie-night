@@ -1,6 +1,24 @@
-import Head from "next/head";
+import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
+import Head from 'next/head';
+import { sdk } from '../graphql/sdk';
 
-export default function Home() {
+type Props = InferGetServerSidePropsType<typeof getServerSideProps>;
+
+const MovieList: React.FC<Props['movieLists'][number]> = (props) => {
+  const { name, movies } = props;
+  return (
+    <div>
+      <h4>{name}</h4>
+      <ol>
+        {movies.map((movie) => (
+          <li key={movie.id}>{movie.name}</li>
+        ))}
+      </ol>
+    </div>
+  );
+};
+
+const Home: React.FC<Props> = (props) => {
   return (
     <>
       <div>
@@ -10,7 +28,12 @@ export default function Home() {
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        <main className="main">something</main>
+        <main className="main">
+          Movie Night
+          {props.movieLists.map((movieList) => (
+            <MovieList {...movieList} />
+          ))}
+        </main>
       </div>
 
       <style jsx>
@@ -27,4 +50,15 @@ export default function Home() {
       </style>
     </>
   );
-}
+};
+
+export const getServerSideProps = async () => {
+  const { movieLists } = await sdk.listMovieLists();
+  return {
+    props: {
+      movieLists,
+    },
+  };
+};
+
+export default Home;

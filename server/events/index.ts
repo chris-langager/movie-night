@@ -9,9 +9,10 @@ export interface MovieListCreated {
   };
 }
 
-export interface MovieListUpdated {
-  type: 'MovieListUpdated';
+export interface MovieListRenamed {
+  type: 'MovieListRenamed';
   payload: {
+    id: string;
     name: string;
   };
 }
@@ -23,7 +24,37 @@ export interface MovieListDeleted {
   };
 }
 
-export type Event = MovieListCreated | MovieListUpdated | MovieListDeleted;
+export interface MovieAddedToList {
+  type: 'MovieAddedToList';
+  payload: {
+    movieList: {
+      id: string;
+    };
+    movie: {
+      id: string;
+      name: string;
+    };
+  };
+}
+
+export interface MovieRemovedFromList {
+  type: 'MovieRemovedFromList';
+  payload: {
+    movieList: {
+      id: string;
+    };
+    movie: {
+      id: string;
+    };
+  };
+}
+
+export type Event =
+  | MovieListCreated
+  | MovieListRenamed
+  | MovieListDeleted
+  | MovieAddedToList
+  | MovieRemovedFromList;
 
 export type EventStore = ReturnType<typeof newEventStore>;
 
@@ -48,23 +79,31 @@ export function newEventStore(file = './events') {
   return {
     emitter,
     loadEvents: async () => {
+      console.log('loading events...');
+      const start = new Date();
       if (!existsSync(file)) {
         return;
       }
       const data = await fs.readFile(file);
-      data
-        .toString()
-        .split('\n')
-        .filter((line) => !!line)
-        .map((line) => {
-          try {
-            return JSON.parse(line);
-          } catch (e) {
-            console.warn(e);
-          }
-        })
-        .filter((line) => !!line)
-        .forEach((event) => writeEvent(event, false));
+      const lines = data.toString().split('\n');
+
+      for (let line of lines) {
+        if (!line) {
+          continue;
+        }
+
+        try {
+          const { date, ...event } = JSON.parse(line);
+          writeEvent(event, false);
+        } catch (e) {
+          console.warn(e);
+          continue;
+        }
+      }
+
+      console.log(
+        `${lines.length} events loaded in ${new Date().getTime() - start.getTime()}ms`
+      );
     },
     listEvents: () => events,
     writeEvent,

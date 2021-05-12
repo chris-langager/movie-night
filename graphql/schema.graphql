@@ -5,8 +5,9 @@ type Query {
 type Mutation {
   createList(id: String!, name: String!): Boolean
   deleteList(id: String!): Boolean
-  addMovieToList(id: String!, name: String!): Boolean
-  removeMovieFromList(id: String!): Boolean
+  renameList(id: String!, name: String!): Boolean
+  addMovieToList(movieListId: String!, movieId: String!, movieName: String!): Boolean
+  removeMovieFromList(movieListId: String!, movieId: String!): Boolean
 }
 
 type Movie {
