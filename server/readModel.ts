@@ -1,17 +1,17 @@
 import { Event } from './events';
 import { EventStore } from './eventStore';
 
-interface State {
+export interface State {
   movieLists: Record<string, MovieList>;
 }
 
-interface MovieList {
+export interface MovieList {
   id: string;
   name: string;
   movies: Movie[];
 }
 
-interface Movie {
+export interface Movie {
   id: string;
   name: string;
 }

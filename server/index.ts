@@ -1,34 +1,24 @@
 import express from 'express';
-// import { newServer } from './graphql';
-// import next from 'next';
 
 import { Event } from './events';
 import { EventStore } from './eventStore';
 import { newReadModel } from './readModel';
-import { helloWorld } from './html/helloWorld';
+import { movieLists } from './html/movies';
 
 const port = parseInt(process.env.PORT, 10) || 3000;
-const dev = process.env.NODE_ENV !== 'production';
 
 const eventStore = new EventStore<Event>();
 export const readModel = newReadModel(eventStore);
-// const gqlServer = newServer(eventStore, readModel);
-
-// const nextServer = next({ dev });
-// const handle = nextServer.getRequestHandler();
 
 const expressServer = express();
 expressServer.get('*', (req, res) => {
-  const html = helloWorld('testzzz');
+  const html = movieLists(readModel.getState());
   res.send(html);
 });
-// gqlServer.applyMiddleware({ app: expressServer, path: '/graphql' });
-// expressServer.all('*', (req, res) => handle(req, res));
 
 (async () => {
   try {
     await readModel.prime(eventStore.getEventsGenerator());
-    // await nextServer.prepare();
 
     expressServer
       .listen(port, () => {
