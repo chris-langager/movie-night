@@ -1,4 +1,5 @@
-import { EventStore, Event } from './events';
+import { Event } from './events';
+import { EventStore } from './eventStore';
 
 interface State {
   movieLists: Record<string, MovieList>;
@@ -48,11 +49,18 @@ function onEvent(state: State, event: Event) {
 }
 
 export type ReadModel = ReturnType<typeof newReadModel>;
-export function newReadModel(eventStore: EventStore) {
+export function newReadModel(eventStore: EventStore<Event>) {
   let state: State = {
     movieLists: {},
   };
-  eventStore.emitter.on('newEvent', (event: Event) => onEvent(state, event));
+  eventStore.on('eventWritten', (event) => onEvent(state, event));
 
-  return { getState: () => state };
+  return {
+    prime: async (eventGenerator: AsyncGenerator<Event>) => {
+      for await (const event of eventGenerator) {
+        onEvent(state, event);
+      }
+    },
+    getState: () => state,
+  };
 }

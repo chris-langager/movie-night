@@ -1,8 +1,12 @@
 import { Resolvers } from './generated/resolvers';
-import { EventStore } from '../events';
-import { ReadModel } from '../state';
+import { EventStore } from '../eventStore';
+import { ReadModel } from '../readModel';
+import { Event } from '../events';
 
-export const resolvers: Resolvers<{ eventStore: EventStore; readModel: ReadModel }> = {
+export const resolvers: Resolvers<{
+  eventStore: EventStore<Event>;
+  readModel: ReadModel;
+}> = {
   Query: {
     movieLists: (_, __, { readModel }) => {
       return Object.values(readModel.getState().movieLists);

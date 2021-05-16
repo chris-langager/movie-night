@@ -18,3 +18,4 @@
 {"date":"2021-05-12T03:01:08.717Z","type":"MovieAddedToList","payload":{"movieList":{"id":"123"},"movie":{"id":"f5dbf4ee-815b-4eb7-9eda-695d53112e19","name":"saf"}}}
 {"date":"2021-05-12T03:01:09.448Z","type":"MovieAddedToList","payload":{"movieList":{"id":"123"},"movie":{"id":"936e2f90-23a7-4345-99c4-809952ef4b6c","name":"asdf"}}}
 {"date":"2021-05-12T03:01:44.610Z","type":"MovieAddedToList","payload":{"movieList":{"id":"123"},"movie":{"id":"28daf904-4be3-44da-80a8-053be690b318","name":"asdf"}}}
+{"date":"2021-05-16T03:15:41.361Z","type":"MovieAddedToList","payload":{"movieList":{"id":"123"},"movie":{"id":"2aad6835-5f03-4e55-aeb0-e4c87b252b0e","name":"asfd"}}}

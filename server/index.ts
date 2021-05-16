@@ -1,13 +1,15 @@
 import express from 'express';
 import { newServer } from './graphql';
 import next from 'next';
-import { Event, newEventStore } from './events';
-import { newReadModel } from './state';
+
+import { Event } from './events';
+import { EventStore } from './eventStore';
+import { newReadModel } from './readModel';
 
 const port = parseInt(process.env.PORT, 10) || 3000;
 const dev = process.env.NODE_ENV !== 'production';
 
-const eventStore = newEventStore();
+const eventStore = new EventStore<Event>();
 export const readModel = newReadModel(eventStore);
 const gqlServer = newServer(eventStore, readModel);
 
@@ -20,7 +22,7 @@ expressServer.all('*', (req, res) => handle(req, res));
 
 (async () => {
   try {
-    await eventStore.loadEvents();
+    await readModel.prime(eventStore.getEventsGenerator());
     await nextServer.prepare();
 
     expressServer
